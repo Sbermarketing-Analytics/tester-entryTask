@@ -10,7 +10,7 @@
 
   let {allow, role} = data
   console.log(allow)
-  
+
   const rpc = client<Client>({endpoint: '/todos'})
   let todos: Awaited<ReturnType<typeof rpc.TODO.all>> = $state([])
 
@@ -20,7 +20,7 @@
 
   const onupdate = debounce(async (todo) => {
     await rpc.TODO.update(todo)
-  }, 1000)
+  })
 
   const ondelete = async (todo) => {
     const deleted = await rpc.TODO.delete(todo)
